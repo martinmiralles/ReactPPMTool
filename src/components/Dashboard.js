@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ProjectItem from "./Project/ProjectItem";
+import CreateProjectButton from "./Project/CreateProjectButton";
 
 //A className-based component, via the shortcut 'rcc'
 //All information here will be send to 'App.js', then send to 'index.js'
@@ -16,9 +17,7 @@ class Dashboard extends Component {
             <div className='col-md-12'>
               <h1 className='display-4 text-center'>Projects</h1>
               <br />
-              <a href='ProjectForm.html' className='btn btn-lg btn-info'>
-                Create a Project
-              </a>
+              <CreateProjectButton></CreateProjectButton>
               <br />
               <hr />
               <ProjectItem></ProjectItem>
