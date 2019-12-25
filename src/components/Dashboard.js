@@ -9,7 +9,7 @@ class Dashboard extends Component {
     return (
       //JSX rule: can only return 1 parent div.  The code below wouldn't work without the div below this line
       <div>
-        <h1>Welcome to the Dashboard</h1>
+        <h1 className='alert alert-warning'>Welcome to the Dashboard</h1>
         <ProjectItem></ProjectItem>
         <ProjectItem></ProjectItem>
         <ProjectItem></ProjectItem>

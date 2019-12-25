@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import Dashboard from "./components/Dashboard";
 import Header from "./components/Layout/Header";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 //Information taken from OTHER components
 //This file sends info to 'index.js', which then sends info to 'index.html'
