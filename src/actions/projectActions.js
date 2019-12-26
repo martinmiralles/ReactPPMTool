@@ -1,5 +1,7 @@
 import axios from "axios";
-import { GET_ERRORS } from "./types";
+import { GET_ERRORS, GET_PROJECTS } from "./types";
+
+//STEP 4: must create actions that contain the API calls
 
 export const createProject = (project, history) => async dispatch => {
   try {
@@ -11,4 +13,12 @@ export const createProject = (project, history) => async dispatch => {
       payload: err.response.data
     });
   }
+};
+
+export const getProjects = () => async dispatch => {
+  const res = await axios.get("http://localhost:8080/api/project/all");
+  dispatch({
+    type: GET_PROJECTS,
+    payload: res.data
+  });
 };
