@@ -14,6 +14,8 @@ class Dashboard extends Component {
   }
 
   render() {
+    const { projects } = this.props.project;
+
     return (
       //JSX rule: can only return 1 parent div.  The code below wouldn't work without the div below this line
 
@@ -27,8 +29,9 @@ class Dashboard extends Component {
               <CreateProjectButton></CreateProjectButton>
               <br />
               <hr />
-              <ProjectItem></ProjectItem>
-              <ProjectItem></ProjectItem>
+              {projects.map(project => (
+                <ProjectItem key={project.id} project={project} />
+              ))}
             </div>
           </div>
         </div>
@@ -39,7 +42,7 @@ class Dashboard extends Component {
 }
 
 Dashboard.propTypes = {
-  project: PropTypes.func.isRequired,
+  project: PropTypes.object.isRequired,
   getProjects: PropTypes.func.isRequired
 };
 
