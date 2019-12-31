@@ -8,6 +8,8 @@ import AddProject from "./components/Project/AddProject";
 import { Provider } from "react-redux";
 import store from "./store";
 import UpdateProject from "./components/Project/UpdateProject";
+import ProjectBoard from "./components/ProjectBoard/ProjectBoard";
+import AddProjectTask from "./components/ProjectBoard/ProjectTasks/AddProjectTask";
 
 //Information taken from OTHER components
 //This file sends info to 'index.js', which then sends info to 'index.html'
@@ -24,6 +26,16 @@ function App() {
             exact
             path='/updateProject/:id'
             component={UpdateProject}
+          ></Route>
+          <Route
+            exact
+            path='/projectBoard/:id'
+            component={ProjectBoard}
+          ></Route>
+          <Route
+            exact
+            path='/addProjectTask/:id'
+            component={AddProjectTask}
           ></Route>
         </div>
       </Router>
