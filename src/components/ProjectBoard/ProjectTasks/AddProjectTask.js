@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import className from "classnames";
+import classnames from "classnames";
 import { addProjectTask } from "../../../actions/backlogActions";
 import PropTypes from "prop-types";
 
@@ -25,12 +25,12 @@ class AddProjectTask extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  //life cycle hooks
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.errors) {
-  //     this.setState({ errors: nextProps.errors });
-  //   }
-  // }
+  //life cycle hooks - required for validations
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
+  }
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
@@ -55,6 +55,7 @@ class AddProjectTask extends Component {
 
   render() {
     const { id } = this.props.match.params;
+    const { errors } = this.state;
     return (
       <div className='add-PBI'>
         <div className='container'>
@@ -74,12 +75,17 @@ class AddProjectTask extends Component {
                 <div className='form-group'>
                   <input
                     type='text'
-                    className='form-control form-control-lg'
+                    className={classnames("form-control form-control-lg ", {
+                      "is-invalid": errors.summary
+                    })}
                     name='summary'
                     placeholder='Project Task summary'
                     value={this.state.summary}
                     onChange={this.onChange}
                   />
+                  {errors.summary && (
+                    <div className='invalid-feedback'>{errors.summary}</div>
+                  )}
                 </div>
                 <div className='form-group'>
                   <textarea
@@ -142,12 +148,13 @@ class AddProjectTask extends Component {
 }
 
 //An object
-// const mapStateToProps = state => ({
-//   errors: state.errors
-// });
+const mapStateToProps = state => ({
+  errors: state.errors
+});
 
 AddProjectTask.propTypes = {
-  addProjectTask: PropTypes.func.isRequired
+  addProjectTask: PropTypes.func.isRequired,
+  errors: PropTypes.object.isRequired
 };
 
-export default connect(null, { addProjectTask })(AddProjectTask);
+export default connect(mapStateToProps, { addProjectTask })(AddProjectTask);
