@@ -10,6 +10,7 @@ import store from "./store";
 import UpdateProject from "./components/Project/UpdateProject";
 import ProjectBoard from "./components/ProjectBoard/ProjectBoard";
 import AddProjectTask from "./components/ProjectBoard/ProjectTasks/AddProjectTask";
+import UpdateProjectTask from "./components/ProjectBoard/ProjectTasks/UpdateProjectTask";
 
 //Information taken from OTHER components
 //This file sends info to 'index.js', which then sends info to 'index.html'
@@ -36,6 +37,11 @@ function App() {
             exact
             path='/addProjectTask/:id'
             component={AddProjectTask}
+          ></Route>
+          <Route
+            exact
+            path='/updateProjectTask/:backlog_id/:projectTask_id'
+            component={UpdateProjectTask}
           ></Route>
         </div>
       </Router>
