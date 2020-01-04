@@ -11,6 +11,9 @@ import UpdateProject from "./components/Project/UpdateProject";
 import ProjectBoard from "./components/ProjectBoard/ProjectBoard";
 import AddProjectTask from "./components/ProjectBoard/ProjectTasks/AddProjectTask";
 import UpdateProjectTask from "./components/ProjectBoard/ProjectTasks/UpdateProjectTask";
+import Landing from "./components/Layout/Landing";
+import Register from "./components/UserManagement/Register";
+import Login from "./components/UserManagement/Login";
 
 //Information taken from OTHER components
 //This file sends info to 'index.js', which then sends info to 'index.html'
@@ -21,6 +24,19 @@ function App() {
       <Router>
         <div className='App'>
           <Header></Header>
+
+          {
+            //Public Routes
+          }
+
+          <Route exact path='/' component={Landing}></Route>
+          <Route exact path='/register' component={Register}></Route>
+          <Route exact path='/login' component={Login}></Route>
+
+          {
+            //Private Routes
+          }
+
           <Route exact path='/dashboard' component={Dashboard}></Route>
           <Route exact path='/addProject' component={AddProject}></Route>
           <Route
