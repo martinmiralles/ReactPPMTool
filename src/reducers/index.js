@@ -2,6 +2,7 @@ import { combineReducers } from "redux";
 import errorReducer from "./errorReducer";
 import projectReducer from "./projectReducer";
 import backlogReducer from "./backlogReducer";
+import securityReducer from "./securityReducer";
 
 //This file is the 'root' reducers
 //STEP 3: The invididual reducers must be listed below
@@ -10,5 +11,6 @@ import backlogReducer from "./backlogReducer";
 export default combineReducers({
   errors: errorReducer,
   project: projectReducer,
-  backlog: backlogReducer
+  backlog: backlogReducer,
+  security: securityReducer
 });
