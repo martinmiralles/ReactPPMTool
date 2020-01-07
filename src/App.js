@@ -17,6 +17,7 @@ import Login from "./components/UserManagement/Login";
 import jwt_decode from "jwt-decode";
 import setJWTToken from "./securityUtils/setJWTToken";
 import { SET_CURRENT_USER } from "./actions/types";
+import { logout } from "./actions/securityActions";
 
 //Information taken from OTHER components
 //This file sends info to 'index.js', which then sends info to 'index.html'
@@ -36,6 +37,7 @@ if (jwtToken) {
   const currentTime = Date.now() / 1000;
   if (decoded_jwtToken < currentTime) {
     //handle logout
+    store.dispatch(logout());
     window.location.href = "/";
   }
 }
